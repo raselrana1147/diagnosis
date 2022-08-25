@@ -1,0 +1,47 @@
+
+.review-profile{
+	width: 48%;
+	float: left;
+}
+.review-profile img
+{
+  width: 45px;
+  height: 45px;
+  padding: 1px;
+  background: #cc8c18;
+  border-radius: 50%;
+}
+
+.review-date{
+    float: right;
+    width: 48%;
+    text-align: right;
+    height: 70px;
+}
+.ratting{
+	padding: 0px;
+	margin: 0px
+}
+
+.ratting p
+{
+    line-height: 12px !important;
+}
+
+.text-yellow{
+    color:yellow;
+}
+
+.eorik-slider-item .eorik-slider-text h1
+{
+  font-size: 85px;
+  font-family: cursive;
+  margin-bottom:0px;
+}
+
+
+@media screen and (max-width: 991px) {
+    .hide-logo {
+        display: none
+    }
+}

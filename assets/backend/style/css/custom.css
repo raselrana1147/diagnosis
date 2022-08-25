@@ -1,0 +1,60 @@
+.invoice_header{
+    text-align: center;
+}
+.invoice_header h5{
+	margin: 0px 50px;
+	padding: 20px 20px;
+	border-bottom: 2px solid #ddd;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.m-b-10{
+   width: 160px;
+   height: 130px;
+   border-radius: 5px;
+   padding: 2px;
+   background: #fff;
+   border: 1px solid #ddd;
+}
+
+.table_wrapper{
+	border: 1px solid #000;
+	width: 100%;  
+}
+
+.table_wrapper thead tr th{
+	text-align: center;
+	padding: 4px;
+}
+.main_table_tr{
+	border:1px solid #000;
+
+}
+
+.main_table_td{
+	border:1px solid #000;
+	text-align: center;
+	font-weight: bold;
+}
+
+.child_table{
+	width: 100%;
+
+}
+
+.child_table tr{
+	border-bottom: 1px solid #000
+}
+.child_table td{
+	padding: 4px
+}
+
+.result-input{
+	width: 100px;
+	border: none
+}
+.result-input:hover{
+
+	box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
