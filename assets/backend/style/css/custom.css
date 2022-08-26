@@ -51,10 +51,30 @@
 }
 
 .result-input{
-	width: 100px;
+	width: 50px;
 	border: none
 }
 .result-input:hover{
 
 	box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+}
+
+.report-file{
+	width: 100%;height: 180px;text-align: center;
+	position: 0px;
+	margin:0px;
+}
+
+.report-file img{
+	width: 200px;
+    height: 140px;
+    position: 0px;
+	margin:0px;
+}
+
+.report-footer{
+	width: 100%;
+	min-height: 200px;
+	overflow: hidden;
+	padding: 20px
 }

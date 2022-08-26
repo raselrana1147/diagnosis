@@ -31,6 +31,14 @@
 		return ['male','female','other'];
 	}
 
+	function total_test($report){
+		return count($report->testResults);
+	}
+
+	function stop($report){
+		return round(total_test($report)/2);
+	}
+
 
 
 

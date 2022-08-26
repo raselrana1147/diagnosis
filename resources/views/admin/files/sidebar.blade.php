@@ -117,6 +117,12 @@
                         </a>
                     </li>
 
+                    <li class=" ">
+                        <a href="{{ route('admin.contact_list') }}">
+                            <span class="pcoded-mtext">Signature</span>
+                        </a>
+                    </li>
+
                 </ul>
             </li>
             <li class="">

@@ -53,6 +53,7 @@
                       <div>
                         <h2>Patient Detail</h2>
                         <img src="{{ asset('assets/backend/image/photo/'.$report->patient->photo) }}">
+                       
                         <h4>{{$report->patient->name}}</h4>
                         <p>Gender: {{$report->patient->gender}}</p>
                         <p>Age: Age</p>
@@ -90,42 +91,72 @@
                       </div>
                     </div>
                     <div class="product_container">
-                      <table class="item_table" border="1" cellspacing="0">
-                        <tr>
-                         
-                          <th width="30%">Test List</th>
-                          <th width="10%">Positive Result</th>
-                          <th width="10%">Negative Result</th>
-                          <th width="50%">Document</th>
-                        </tr>
-                       
-                        @foreach ($report->testResults as $r_test)
-                        @if ($loop->index==0)
-                          <tr>
-                            <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
-                            <td><input type="text" name="positive" class="result-input" value="{{$r_test->positive}}" result_type="positive" item_id="{{$r_test->id}}"></td>
-                            <td><input type="text" name="negative" class="result-input" value="{{$r_test->negative}}" result_type="negative" item_id="{{$r_test->id}}"></td>
-                            <td rowspan="{{count($report->testResults)+1}}">
-                              @foreach ($report->documents as $document)
-                                <img src="{{ asset('assets/backend/image/document/'.$document->report_file) }}" width="200">
-                              @endforeach
-                            </td>
-                          </tr>
-                          @else
-                          <tr>
-                            <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
-                            <td><input type="text" name="positive" class="result-input" value="{{$r_test->positive}}" item_id="{{$r_test->id}}" result_type="positive"></td>
-                            <td><input type="text" name="negative" class="result-input" value="{{$r_test->negative}}" item_id="{{$r_test->id}}" result_type="negative"></td>
-                          </tr>
-                        @endif
-                          
-                        @endforeach
+                      <div style="width: 100%">
+                        <section style="width: 60%;float: left;">
+                          <table class="item_table" border="1" cellspacing="0">
+                            <tr>
+                              <th>Name</th>
+                              <th colspan="2">Result</th>
+                            </tr>
+                            @foreach ($report->testResults as $r_test)
+                              <tr>
+                                <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
+                                <td><input type="text" name="positive" class="result-input" value="{{$r_test->positive}}" result_type="positive" item_id="{{$r_test->id}}"></td>
+                                <td><input type="text" name="negative" class="result-input" value="{{$r_test->negative}}" result_type="negative" item_id="{{$r_test->id}}"></td>
+                              </tr>
+                            @endforeach
+                          </table>
+                        </section>
 
-                         </table>
+                        <section style="width: 40%;float: right;">
+                          <table class="item_table" border="1" cellspacing="0">
+                            <tr>
+                              <th>Document {{stop($report)}}</th>
+                            </tr>
+                            @for ($i = 0; $i <=total_test($report) ; $i++)
+                             <tr>
+                               @if ($i<stop($report))
+                                <td>{{$i}}</td>
+                                @elseif($i==stop($report))
+                                  <td rowspan="{{stop($report)}}">
+                                    <div class="report-file">
+                                      @foreach ($report->documents as $document)
+                                        <img src="{{ asset('assets/backend/image/document/'.$document->report_file) }}" width="200">
+                                      @endforeach
+                                    </div>
+                                  </td>
+                                @endif
+                             </tr>
+                            @endfor
+                          </table>
+                        </section>
+
+                        <div class="report-footer">
+                            <section style="width: 50%;float: left;">
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                            </section>
+
+                          <section style="width: 50%;float: right">
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                                <p>dsfds</p>
+                           </section>
+                       </div>
+
+                     </div>
+
+
                     </div>
                     
                   </div>
+                  
               </div>
+
               </div>
         </div>
       </div>

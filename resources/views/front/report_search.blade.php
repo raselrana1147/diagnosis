@@ -80,37 +80,43 @@
 	                			</div>
 	                		</div>
 	                		<div class="product_container">
-	                			<table class="item_table" border="1" cellspacing="0">
-	                				<tr>
-	                				 
-	                				  <th width="30%">Test List</th>
-	                				  <th width="10%">Positive Result</th>
-	                				  <th width="10%">Negative Result</th>
-	                				  <th width="50%">Document</th>
-	                				</tr>
-	                				
-	                				@foreach ($report->testResults as $r_test)
-	                				@if ($loop->index==0)
-	                				  <tr>
-	                				    <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
-	                				    <td>{{$r_test->positive}}</td>
-	                				    <td>{{$r_test->negative}}</td>
-	                				    <td rowspan="{{count($report->testResults)+1}}">
-	                				      @foreach ($report->documents as $document)
-	                				        <img src="{{ asset('assets/backend/image/document/'.$document->report_file) }}" width="200">
-	                				      @endforeach
-	                				    </td>
-	                				  </tr>
-	                				  @else
-	                				  <tr>
-	                				    <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
-	                				    <td>{{$r_test->positive}}</td>
-	                				    <td>{{$r_test->negative}}</td>
-	                				  </tr>
-	                				@endif
-	                				  
-	                				@endforeach
-	                			</table>
+	                			<section style="width: 60%;float: left;">
+	                			  <table class="item_table" border="1" cellspacing="0">
+	                			    <tr>
+	                			      <th>Test Lists</th>
+	                			      <th colspan="2">Results</th>
+	                			    </tr>
+	                			    @foreach ($report->testResults as $r_test)
+	                			      <tr>
+	                			        <td><span class="pr-2">{{$loop->index+1}}. </span> {{$r_test->test->test_name}}</td>
+	                			        <td>{{$r_test->positive}}</td>
+	                			        <td>{{$r_test->negative}}</td>
+	                			      </tr>
+	                			    @endforeach
+	                			  </table>
+	                			</section>
+	                			<section style="width: 40%;float: right;">
+	                			  <table class="item_table" border="1" cellspacing="0">
+	                			    <tr>
+	                			      <th >Document</th>
+	                			    </tr>
+	                			    @for ($i = 0; $i <=total_test($report) ; $i++)
+	                			     <tr>
+	                			       @if ($i<stop($report))
+	                			        <td>{{$i}}</td>
+	                			        @elseif($i==stop($report))
+	                			          <td rowspan="{{stop($report)}}">
+	                			            <div class="report-file">
+	                			              @foreach ($report->documents as $document)
+	                			                <img src="{{ asset('assets/backend/image/document/'.$document->report_file) }}" width="200">
+	                			              @endforeach
+	                			            </div>
+	                			          </td>
+	                			        @endif
+	                			     </tr>
+	                			    @endfor
+	                			  </table>
+	                			</section>
 	                		</div>
 	                		
 	                	</div>
